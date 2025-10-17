@@ -1,0 +1,150 @@
+
+body {
+    font-family: 'Sansation', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px 10px;
+    border-bottom: 5px solid #000;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1.1;
+    color: #000;
+    margin: 0;
+}
+
+h1:first-line {
+    font-size: 0.7em; /* Para o "MÊS DA" */
+    display: block;
+}
+
+.subtitle, .reference {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.reference {
+    font-style: italic;
+}
+
+.schedule-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    flex-wrap: wrap; /* Para telas menores */
+}
+
+.week {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 280px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.week-title {
+    background-color: #000;
+    color: #fff;
+    padding: 8px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.day-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-bottom: 1px dashed #eee;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.day-item:hover {
+    background-color: #f0f0f0;
+}
+
+.day-item:last-child {
+    border-bottom: none;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.checkbox.checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: green;
+    font-weight: bold;
+}
+
+.day-info strong {
+    display: block;
+    font-size: 1.1em;
+}
+
+.day-info span {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Footer and Button */
+footer {
+    padding: 20px 10px;
+    background-color: #fff;
+    border-top: 5px solid #000;
+    margin-top: 20px;
+}
+
+.reset-button {
+    background-color: #d9534f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+    background-color: #c9302c;
+}
+
+.footer-text {
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.footer-small {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+}
