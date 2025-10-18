@@ -81,9 +81,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const readingSpan = document.createElement('span');
                 readingSpan.textContent = item.leitura;
+                
+                // Criando o botão "VER" para abrir o versículo
+                const verButton = document.createElement('button');
+                verButton.textContent = 'VER';
+                verButton.className = 'ver-button';
+                verButton.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Evita que o evento de clique propague para o dayItem
+                    const versiculo = item.leitura;
+                    // Abre o versículo no site da Bíblia Online em uma nova aba
+                    window.open(`https://www.bibliaonline.com.br/acf/${versiculo.replace(/\s+/g, '/')}`, '_blank');
+                });
 
                 dayInfo.appendChild(dayStrong);
                 dayInfo.appendChild(readingSpan);
+                
+                // Adicionando os elementos na ordem: botão VER, checkbox, dayInfo
+                dayItem.appendChild(verButton);
                 dayItem.appendChild(checkbox);
                 dayItem.appendChild(dayInfo);
                 weekElement.appendChild(dayItem);
