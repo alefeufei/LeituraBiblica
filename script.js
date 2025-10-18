@@ -89,8 +89,66 @@ document.addEventListener('DOMContentLoaded', () => {
                 verButton.addEventListener('click', (e) => {
                     e.stopPropagation(); // Evita que o evento de clique propague para o dayItem
                     const versiculo = item.leitura;
-                    // Abre o versículo no site da Bíblia Online em uma nova aba
-                    window.open(`https://www.bibliaonline.com.br/acf/${versiculo.replace(/\s+/g, '/')}`, '_blank');
+                    
+                    // Mapeamento correto dos nomes dos livros
+                    const livrosMap = {
+                        'JOÃO': 'jo',
+                        'JOSUÉ': 'js',
+                        'TIMÓTEO': 'tm',
+                        'DEUTERONÔMIO': 'dt',
+                        'ISAÍAS': 'is',
+                        'SALMOS': 'sl',
+                        'MATEUS': 'mt',
+                        'HEBREUS': 'hb',
+                        'TIAGO': 'tg',
+                        'PEDRO': 'pe',
+                        'APOCALIPSE': 'ap',
+                        'SAMUEL': 'sm',
+                        'PROVÉRBIOS': 'pv',
+                        'TS': 'ts',
+                        'FILIPENSES': 'fp',
+                        'ATOS': 'atos'
+                    };
+                    
+                    // Extrair o livro e o capítulo/versículo
+                    const partes = versiculo.split(' ');
+                    let livro = partes[0];
+                    
+                    // Verificar se há número antes do livro (ex: 1 PEDRO, 2 TIMÓTEO)
+                    let numeroLivro = '';
+                    if (!isNaN(parseInt(livro))) {
+                        numeroLivro = livro;
+                        livro = partes[1];
+                        
+                        // Remover os dois primeiros elementos (número e nome do livro)
+                        partes.splice(0, 2);
+                    } else {
+                        // Remover apenas o primeiro elemento (nome do livro)
+                        partes.splice(0, 1);
+                    }
+                    
+                    // Encontrar o código correto do livro
+                    let codigoLivro = '';
+                    for (const [nome, codigo] of Object.entries(livrosMap)) {
+                        if (livro.includes(nome)) {
+                            codigoLivro = numeroLivro + codigo;
+                            break;
+                        }
+                    }
+                    
+                    // Se não encontrou o código, usar o nome original
+                    if (!codigoLivro) {
+                        codigoLivro = numeroLivro ? numeroLivro + livro.toLowerCase() : livro.toLowerCase();
+                    }
+                    
+                    // Juntar o restante para formar o capítulo e versículo
+                    const capituloVersiculo = partes.join('');
+                    
+                    // Construir a URL final
+                    const url = `https://www.bibliaonline.com.br/acf/${codigoLivro}/${capituloVersiculo}`;
+                    
+                    // Abrir em nova aba
+                    window.open(url, '_blank');
                 });
 
                 dayInfo.appendChild(dayStrong);
