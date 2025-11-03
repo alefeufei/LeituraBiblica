@@ -1,217 +1,245 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const scheduleData = [
-        // 1ª SEMANA
-        { dia: "DOMINGO 05/10", leitura: "SALMOS 19:7-11" },
-        { dia: "SEGUNDA 06/10", leitura: "JOÃO 6:66-69" },
-        { dia: "TERÇA 07/10", leitura: "JOSUÉ 1:7-9" },
-        { dia: "QUARTA 08/10", leitura: "2 TIMÓTEO 3:14-17" },
-        { dia: "QUINTA 09/10", leitura: "SALMOS 119:97-104" },
-        { dia: "SEXTA 10/10", leitura: "SALMOS 119:105-112" },
-        { dia: "SÁBADO 11/10", leitura: "MATEUS 7:24-27" },
+// Versão do código - aumente este número quando fizer alterações
+const CODE_VERSION = "1.0.2";
 
-        // 2ª SEMANA
-        { dia: "DOMINGO 12/10", leitura: "HEBREUS 4:11-13" },
-        { dia: "SEGUNDA 13/10", leitura: "SALMOS 1:1-3" },
-        { dia: "TERÇA 14/10", leitura: "TIAGO 1:21-25" },
-        { dia: "QUARTA 15/10", leitura: "ISAÍAS 55:8-11" },
-        { dia: "QUINTA 16/10", leitura: "1 PEDRO 1:22-25" },
-        { dia: "SEXTA 17/10", leitura: "SALMOS 33:4-6" },
-        { dia: "SÁBADO 18/10", leitura: "JOÃO 14:23-27" },
+document.addEventListener("DOMContentLoaded", () => {
+  const scheduleData = [
+    // PRIMEIRA SEMANA
+    { dia: "DOM 02/11", leitura: "1 CORÍNTIOS 9:16-22" },
+    { dia: "SEG 03/11", leitura: "1 CORÍNTIOS 9:23-27" },
+    { dia: "TER 04/11", leitura: "JEREMIAS 1:4-10" },
+    { dia: "QUA 05/11", leitura: "MARCOS 16:15-18" },
+    { dia: "QUI 06/11", leitura: "SALMOS 96:1-9" },
+    { dia: "SEX 06/11", leitura: "ROMANOS 10:13-17" },
+    { dia: "SÁB 08/11", leitura: "ISAÍAS 52:7-10" },
 
-        // 3ª SEMANA
-        { dia: "DOMINGO 19/10", leitura: "DEUTERONÔMIO 8:1-3" },
-        { dia: "SEGUNDA 20/10", leitura: "JOÃO 8:31-36" },
-        { dia: "TERÇA 21/10", leitura: "SALMOS 12:6-7" },
-        { dia: "QUARTA 22/10", leitura: "ATOS 17:10-12" },
-        { dia: "QUINTA 23/10", leitura: "2 SAMUEL 22:29-33" },
-        { dia: "SEXTA 24/10", leitura: "APOCALIPSE 1:1-3" },
-        { dia: "SÁBADO 25/10", leitura: "SALMOS 34:4-8" },
+    // SEGUNDA SEMANA
+    { dia: "DOM 09/11", leitura: "ATOS 1:6-9" },
+    { dia: "SEG 10/11", leitura: "PROVÉRBIOS 11:30-31" },
+    { dia: "TER 11/11", leitura: "2 TIMÓTEO 4:1-5" },
+    { dia: "QUA 12/11", leitura: "ATOS 20:19-24" },
+    { dia: "QUI 13/11", leitura: "JOÃO 3:27-36" },
+    { dia: "SEX 14/11", leitura: "LUCAS 10:1-7" },
+    { dia: "SÁB 15/11", leitura: "LUCAS 10:8-16" },
 
-        // 4ª SEMANA
-        { dia: "DOMINGO 26/10", leitura: "PROVÉRBIOS 30:5-6" },
-        { dia: "SEGUNDA 27/10", leitura: "1 TS 2:11-13" },
-        { dia: "TERÇA 28/10", leitura: "SALMOS 37:3-6" },
-        { dia: "QUARTA 29/10", leitura: "JOÃO 17:14-19" },
-        { dia: "QUINTA 30/10", leitura: "ISAÍAS 40:6-8" },
-        { dia: "SEXTA 31/10", leitura: "FILIPENSES 2:14-16" },
-        { dia: "SÁBADO 01/11", leitura: "SALMOS 119:25-32" }
+    // TERCEIRA SEMANA
+    { dia: "DOM 16/11", leitura: "LUCAS 10:17-22" },
+    { dia: "SEG 17/11", leitura: "MATEUS 9:35-38" },
+    { dia: "TER 18/11", leitura: "ISAÍAS 61:1-4" },
+    { dia: "QUA 19/11", leitura: "JONAS 3:1-5" },
+    { dia: "QUI 20/11", leitura: "JEREMIAS 20:7-11" },
+    { dia: "SEX 21/11", leitura: "ISAÍAS 6:6-8" },
+    { dia: "SÁB 22/11", leitura: "SALMOS 40:9-17" },
+
+    // QUARTA SEMANA
+    { dia: "DOM 23/11", leitura: "ISAÍAS 55:10-13" },
+    { dia: "SEG 24/11", leitura: "MATEUS 10:7-10" },
+    { dia: "TER 25/11", leitura: "LUCAS 4:40-44" },
+    { dia: "QUA 26/11", leitura: "2 CORÍNTIOS 12:10-15" },
+    { dia: "QUI 27/11", leitura: "2 CRÔNICAS 15:7-9" },
+    { dia: "SEX 28/11", leitura: "2 CORÍNTIOS 5:17-21" },
+    { dia: "SÁB 29/11", leitura: "FILIPENSES 1:12-21" },
+
+    // QUINTA SEMANA
+    { dia: "DOM 30/11", leitura: "FILIPENSES 2:3-11" },
+    { dia: "SEG 01/12", leitura: "FILIPENSES 2:12-17" },
+    { dia: "TER 02/12", leitura: "MARCOS 1:17-27" },
+    { dia: "QUA 03/12", leitura: "ATOS 8:4-8" },
+    { dia: "QUI 04/12", leitura: "JOÃO 20:19-23" },
+    { dia: "SEX 05/12", leitura: "MATEUS 28:16-20" },
+    { dia: "SÁB 06/12", leitura: "1 PEDRO 3:11-17" },
+  ];
+
+  const container = document.querySelector(".schedule-container");
+  const resetButton = document.getElementById("resetButton");
+
+  // Verificar versão e limpar dados antigos se necessário
+  const storedVersion = localStorage.getItem("codeVersion");
+  if (storedVersion !== CODE_VERSION) {
+    console.log(
+      "Nova versão detectada. Atualizando de",
+      storedVersion,
+      "para",
+      CODE_VERSION
+    );
+    localStorage.setItem("codeVersion", CODE_VERSION);
+    // Mantém as leituras marcadas mesmo com nova versão
+  }
+
+  // Carrega as leituras marcadas do localStorage
+  let checkedReadings =
+    JSON.parse(localStorage.getItem("checkedReadings")) || {};
+
+  /**
+   * Função para renderizar as semanas e dias
+   */
+  function renderSchedule() {
+    container.innerHTML = "";
+    const weeks = [
+      { title: "PRIMEIRA SEMANA", start: 0 },
+      { title: "SEGUNDA SEMANA", start: 7 },
+      { title: "TERCEIRA SEMANA", start: 14 },
+      { title: "QUARTA SEMANA", start: 21 },
+      { title: "QUINTA SEMANA", start: 28 },
     ];
 
-    const container = document.querySelector('.schedule-container');
-    const resetButton = document.getElementById('resetButton');
-    const checkedReadings = JSON.parse(localStorage.getItem('checkedReadings')) || {};
+    weeks.forEach((week) => {
+      const weekElement = document.createElement("div");
+      weekElement.className = "week";
 
-    /**
-     * Função para renderizar as semanas e dias
-     */
-    function renderSchedule() {
-        container.innerHTML = '';
-        const weeks = [1, 2, 3, 4];
+      const title = document.createElement("div");
+      title.className = "week-title";
+      title.textContent = week.title;
+      weekElement.appendChild(title);
 
-        weeks.forEach(weekIndex => {
-            const weekElement = document.createElement('div');
-            weekElement.className = 'week';
+      const weekDays = scheduleData.slice(week.start, week.start + 7);
 
-            const title = document.createElement('div');
-            title.className = 'week-title';
-            title.textContent = `${weekIndex}ª SEMANA`;
-            weekElement.appendChild(title);
+      weekDays.forEach((item, dayIndex) => {
+        const globalIndex = week.start + dayIndex;
+        const itemId = `day-${globalIndex}`;
 
-            // Calcula o índice inicial e final para esta semana (7 dias por semana)
-            const startIndex = (weekIndex - 1) * 7;
-            const weekDays = scheduleData.slice(startIndex, startIndex + 7);
+        const dayItem = document.createElement("div");
+        dayItem.className = "day-item";
+        dayItem.dataset.id = itemId;
 
-            weekDays.forEach((item, dayIndex) => {
-                const globalIndex = startIndex + dayIndex;
-                const itemId = `day-${globalIndex}`; // ID único para cada item
+        const checkbox = document.createElement("div");
+        checkbox.className = "checkbox";
+        checkbox.dataset.id = itemId;
 
-                const dayItem = document.createElement('div');
-                dayItem.className = 'day-item';
-                dayItem.dataset.id = itemId;
+        const dayInfo = document.createElement("div");
+        dayInfo.className = "day-info";
 
-                const checkbox = document.createElement('div');
-                checkbox.className = 'checkbox';
-                checkbox.dataset.id = itemId;
+        const dayStrong = document.createElement("strong");
+        dayStrong.textContent = item.dia;
 
-                const dayInfo = document.createElement('div');
-                dayInfo.className = 'day-info';
-                
-                const dayStrong = document.createElement('strong');
-                dayStrong.textContent = item.dia;
-                
-                const readingSpan = document.createElement('span');
-                readingSpan.textContent = item.leitura;
-                
-                // Criando o botão "VER" para abrir o versículo
-                const verButton = document.createElement('button');
-                verButton.textContent = 'VER';
-                verButton.className = 'ver-button';
-                verButton.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Evita que o evento de clique propague para o dayItem
-                    const versiculo = item.leitura;
-                    
-                    // Mapeamento correto dos nomes dos livros
-                    const livrosMap = {
-                        'JOÃO': 'jo',
-                        'JOSUÉ': 'js',
-                        'TIMÓTEO': 'tm',
-                        'DEUTERONÔMIO': 'dt',
-                        'ISAÍAS': 'is',
-                        'SALMOS': 'sl',
-                        'MATEUS': 'mt',
-                        'HEBREUS': 'hb',
-                        'TIAGO': 'tg',
-                        'PEDRO': 'pe',
-                        'APOCALIPSE': 'ap',
-                        'SAMUEL': 'sm',
-                        'PROVÉRBIOS': 'pv',
-                        'TS': 'ts',
-                        'FILIPENSES': 'fp',
-                        'ATOS': 'atos'
-                    };
-                    
-                    // Extrair o livro e o capítulo/versículo
-                    const partes = versiculo.split(' ');
-                    let livro = partes[0];
-                    
-                    // Verificar se há número antes do livro (ex: 1 PEDRO, 2 TIMÓTEO)
-                    let numeroLivro = '';
-                    if (!isNaN(parseInt(livro))) {
-                        numeroLivro = livro;
-                        livro = partes[1];
-                        
-                        // Remover os dois primeiros elementos (número e nome do livro)
-                        partes.splice(0, 2);
-                    } else {
-                        // Remover apenas o primeiro elemento (nome do livro)
-                        partes.splice(0, 1);
-                    }
-                    
-                    // Encontrar o código correto do livro
-                    let codigoLivro = '';
-                    for (const [nome, codigo] of Object.entries(livrosMap)) {
-                        if (livro.includes(nome)) {
-                            codigoLivro = numeroLivro + codigo;
-                            break;
-                        }
-                    }
-                    
-                    // Se não encontrou o código, usar o nome original
-                    if (!codigoLivro) {
-                        codigoLivro = numeroLivro ? numeroLivro + livro.toLowerCase() : livro.toLowerCase();
-                    }
-                    
-                    // Juntar o restante para formar o capítulo e versículo
-                    const capituloVersiculo = partes.join('');
-                    
-                    // Construir a URL final
-                    const url = `https://www.bibliaonline.com.br/acf/${codigoLivro}/${capituloVersiculo}`;
-                    
-                    // Abrir em nova aba
-                    window.open(url, '_blank');
-                });
+        const readingSpan = document.createElement("span");
+        readingSpan.textContent = item.leitura;
 
-                dayInfo.appendChild(dayStrong);
-                dayInfo.appendChild(readingSpan);
-                
-                // Adicionando os elementos na ordem: botão VER, checkbox, dayInfo
-                dayItem.appendChild(verButton);
-                dayItem.appendChild(checkbox);
-                dayItem.appendChild(dayInfo);
-                weekElement.appendChild(dayItem);
-
-                // Aplica a marcação se estiver salva
-                if (checkedReadings[itemId]) {
-                    checkbox.classList.add('checked');
-                }
-
-                // Adiciona o evento de clique
-                dayItem.addEventListener('click', toggleCheck);
-            });
-
-            container.appendChild(weekElement);
+        const verButton = document.createElement("button");
+        verButton.textContent = "VER";
+        verButton.className = "ver-button";
+        verButton.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const url = generateBibleUrl(item.leitura);
+          window.open(url, "_blank");
         });
-    }
 
-    /**
-     * Função para marcar/desmarcar o item
-     * @param {Event} event 
-     */
-    function toggleCheck(event) {
-        // Encontra o checkbox e o ID
-        const item = event.currentTarget;
-        const itemId = item.dataset.id;
-        const checkbox = item.querySelector('.checkbox');
+        dayInfo.appendChild(dayStrong);
+        dayInfo.appendChild(readingSpan);
 
-        // Alterna a classe e o estado no objeto
-        checkbox.classList.toggle('checked');
-        checkedReadings[itemId] = checkbox.classList.contains('checked');
+        dayItem.appendChild(verButton);
+        dayItem.appendChild(checkbox);
+        dayItem.appendChild(dayInfo);
+        weekElement.appendChild(dayItem);
 
-        // Salva no localStorage
-        localStorage.setItem('checkedReadings', JSON.stringify(checkedReadings));
-    }
-
-    /**
-     * Função para resetar todas as marcações
-     */
-    function resetReadings() {
-        if (confirm("Tem certeza que deseja limpar TODAS as marcações de leitura? Esta ação não pode ser desfeita.")) {
-            // Limpa o objeto e o localStorage
-            for (const key in checkedReadings) {
-                delete checkedReadings[key];
-            }
-            localStorage.removeItem('checkedReadings');
-            
-            // Remove a classe de todos os checkboxes na tela
-            document.querySelectorAll('.checkbox').forEach(box => {
-                box.classList.remove('checked');
-            });
-
-            alert("Marcações resetadas com sucesso!");
+        if (checkedReadings[itemId]) {
+          checkbox.classList.add("checked");
         }
+
+        dayItem.addEventListener("click", toggleCheck);
+      });
+
+      container.appendChild(weekElement);
+    });
+  }
+
+  /**
+   * Função para gerar a URL da Bíblia Online
+   */
+  function generateBibleUrl(versiculo) {
+    const livrosMap = {
+      CORÍNTIOS: "co",
+      JEREMIAS: "jr",
+      MARCOS: "mc",
+      SALMOS: "sl",
+      ROMANOS: "rm",
+      ISAÍAS: "is",
+      ATOS: "at",
+      PROVÉRBIOS: "pv",
+      TIMÓTEO: "tm",
+      JOÃO: "jo",
+      LUCAS: "lc",
+      MATEUS: "mt",
+      JONAS: "jn",
+      CRÔNICAS: "cr",
+      FILIPENSES: "fp",
+      PEDRO: "pe",
+    };
+
+    const partes = versiculo.split(" ");
+    let numeroLivro = "";
+    let livro = partes[0];
+    let offset = 1;
+
+    if (!isNaN(parseInt(livro))) {
+      numeroLivro = livro;
+      livro = partes[1];
+      offset = 2;
     }
 
-    // Inicializa a renderização e o botão de reset
-    renderSchedule();
-    resetButton.addEventListener('click', resetReadings);
+    let codigoLivro = "";
+    for (const [nome, codigo] of Object.entries(livrosMap)) {
+      if (livro.includes(nome)) {
+        codigoLivro = numeroLivro + codigo;
+        break;
+      }
+    }
+
+    if (!codigoLivro) {
+      codigoLivro = numeroLivro
+        ? numeroLivro + livro.toLowerCase()
+        : livro.toLowerCase();
+    }
+
+    const capituloVersiculo = partes.slice(offset).join("").toLowerCase();
+
+    return `https://www.bibliaonline.com.br/nvi/${codigoLivro}/${capituloVersiculo}`;
+  }
+
+  /**
+   * Função para marcar/desmarcar o item
+   */
+  function toggleCheck(event) {
+    const item = event.currentTarget;
+    const itemId = item.dataset.id;
+    const checkbox = item.querySelector(".checkbox");
+
+    checkbox.classList.toggle("checked");
+
+    // Atualiza o estado
+    if (checkbox.classList.contains("checked")) {
+      checkedReadings[itemId] = true;
+    } else {
+      delete checkedReadings[itemId];
+    }
+
+    // Salva no localStorage
+    localStorage.setItem("checkedReadings", JSON.stringify(checkedReadings));
+    console.log("Salvando:", itemId, checkedReadings); // Debug
+  }
+
+  /**
+   * Função para resetar todas as marcações
+   */
+  function resetReadings() {
+    if (
+      confirm(
+        "Tem certeza que deseja limpar TODAS as marcações de leitura? Esta ação não pode ser desfeita."
+      )
+    ) {
+      // Limpa o objeto e o localStorage
+      for (const key in checkedReadings) {
+        delete checkedReadings[key];
+      }
+      localStorage.removeItem("checkedReadings");
+
+      document.querySelectorAll(".checkbox").forEach((box) => {
+        box.classList.remove("checked");
+      });
+
+      alert("Marcações resetadas com sucesso!");
+    }
+  }
+
+  renderSchedule();
+  resetButton.addEventListener("click", resetReadings);
 });
