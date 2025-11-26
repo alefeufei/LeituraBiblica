@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { dia: "SEX 21/11", leitura: "ISAÍAS 6:6-8" },
     { dia: "SÁB 22/11", leitura: "SALMOS 40:9-17" },
 
-    // QUARTA SEMANA
+    // QUARTA SEMANA :)
     { dia: "DOM 23/11", leitura: "ISAÍAS 55:10-13" },
     { dia: "SEG 24/11", leitura: "MATEUS 10:7-10" },
     { dia: "TER 25/11", leitura: "LUCAS 4:40-44" },
