@@ -1,5 +1,5 @@
 // Versão do código - aumente este número quando fizer alterações
-const CODE_VERSION = "1.0.2";
+const CODE_VERSION = "1.0.3";
 
 document.addEventListener("DOMContentLoaded", () => {
   const scheduleData = [
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { dia: "TER 04/11", leitura: "JEREMIAS 1:4-10" },
     { dia: "QUA 05/11", leitura: "MARCOS 16:15-18" },
     { dia: "QUI 06/11", leitura: "SALMOS 96:1-9" },
-    { dia: "SEX 06/11", leitura: "ROMANOS 10:13-17" },
+    { dia: "SEX 07/11", leitura: "ROMANOS 10:13-17" },
     { dia: "SÁB 08/11", leitura: "ISAÍAS 52:7-10" },
 
     // SEGUNDA SEMANA
