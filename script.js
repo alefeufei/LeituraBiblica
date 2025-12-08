@@ -1,52 +1,43 @@
 // Versão do código - aumente este número quando fizer alterações
-const CODE_VERSION = "1.0.3";
+const CODE_VERSION = "2.0.0";
 
 document.addEventListener("DOMContentLoaded", () => {
   const scheduleData = [
     // PRIMEIRA SEMANA
-    { dia: "DOM 02/11", leitura: "1 CORÍNTIOS 9:16-22" },
-    { dia: "SEG 03/11", leitura: "1 CORÍNTIOS 9:23-27" },
-    { dia: "TER 04/11", leitura: "JEREMIAS 1:4-10" },
-    { dia: "QUA 05/11", leitura: "MARCOS 16:15-18" },
-    { dia: "QUI 06/11", leitura: "SALMOS 96:1-9" },
-    { dia: "SEX 07/11", leitura: "ROMANOS 10:13-17" },
-    { dia: "SÁB 08/11", leitura: "ISAÍAS 52:7-10" },
+    { dia: "DOM 07/12", leitura: "MATEUS 26:36-39" },
+    { dia: "SEG 08/12", leitura: "MATEUS 26:40-46" },
+    { dia: "TER 09/12", leitura: "AGEU 1:4-8" },
+    { dia: "QUA 10/12", leitura: "JOÃO 15:5-8" },
+    { dia: "QUI 11/12", leitura: "JEREMIAS 17:5-10" },
+    { dia: "SEX 12/12", leitura: "1 CORÍNTIOS 3:9-13" },
+    { dia: "SÁB 13/12", leitura: "1 CORÍNTIOS 3:14-19" },
 
     // SEGUNDA SEMANA
-    { dia: "DOM 09/11", leitura: "ATOS 1:6-9" },
-    { dia: "SEG 10/11", leitura: "PROVÉRBIOS 11:30-31" },
-    { dia: "TER 11/11", leitura: "2 TIMÓTEO 4:1-5" },
-    { dia: "QUA 12/11", leitura: "ATOS 20:19-24" },
-    { dia: "QUI 13/11", leitura: "JOÃO 3:27-36" },
-    { dia: "SEX 14/11", leitura: "LUCAS 10:1-7" },
-    { dia: "SÁB 15/11", leitura: "LUCAS 10:8-16" },
+    { dia: "DOM 14/12", leitura: "APOCALIPSE 2:2-5" },
+    { dia: "SEG 15/12", leitura: "PROVÉRBIOS 4:23-27" },
+    { dia: "TER 16/12", leitura: "2 TIMÓTEO 4:1-5" },
+    { dia: "QUA 17/12", leitura: "ISAÍAS 29:13-16" },
+    { dia: "QUI 18/12", leitura: "TIAGO 1:5-12" },
+    { dia: "SEX 19/12", leitura: "SALMOS 51:5-13" },
+    { dia: "SÁB 20/12", leitura: "ROMANOS 12:9-18" },
 
     // TERCEIRA SEMANA
-    { dia: "DOM 16/11", leitura: "LUCAS 10:17-22" },
-    { dia: "SEG 17/11", leitura: "MATEUS 9:35-38" },
-    { dia: "TER 18/11", leitura: "ISAÍAS 61:1-4" },
-    { dia: "QUA 19/11", leitura: "JONAS 3:1-5" },
-    { dia: "QUI 20/11", leitura: "JEREMIAS 20:7-11" },
-    { dia: "SEX 21/11", leitura: "ISAÍAS 6:6-8" },
-    { dia: "SÁB 22/11", leitura: "SALMOS 40:9-17" },
+    { dia: "DOM 21/12", leitura: "EZEQUIEL 36:25-31" },
+    { dia: "SEG 22/12", leitura: "LUCAS 23:44-49" },
+    { dia: "TER 23/12", leitura: "SALMOS 139:1-8" },
+    { dia: "QUA 24/12", leitura: "GÁLATAS 5:16-23" },
+    { dia: "QUI 25/12", leitura: "2 CRÔNICAS 15:1-7" },
+    { dia: "SEX 26/12", leitura: "1 JOÃO 5:1-5" },
+    { dia: "SÁB 27/12", leitura: "TIAGO 4:7-10" },
 
-    // QUARTA SEMANA :)
-    { dia: "DOM 23/11", leitura: "ISAÍAS 55:10-13" },
-    { dia: "SEG 24/11", leitura: "MATEUS 10:7-10" },
-    { dia: "TER 25/11", leitura: "LUCAS 4:40-44" },
-    { dia: "QUA 26/11", leitura: "2 CORÍNTIOS 12:10-15" },
-    { dia: "QUI 27/11", leitura: "2 CRÔNICAS 15:7-9" },
-    { dia: "SEX 28/11", leitura: "2 CORÍNTIOS 5:17-21" },
-    { dia: "SÁB 29/11", leitura: "FILIPENSES 1:12-21" },
-
-    // QUINTA SEMANA
-    { dia: "DOM 30/11", leitura: "FILIPENSES 2:3-11" },
-    { dia: "SEG 01/12", leitura: "FILIPENSES 2:12-17" },
-    { dia: "TER 02/12", leitura: "MARCOS 1:17-27" },
-    { dia: "QUA 03/12", leitura: "ATOS 8:4-8" },
-    { dia: "QUI 04/12", leitura: "JOÃO 20:19-23" },
-    { dia: "SEX 05/12", leitura: "MATEUS 28:16-20" },
-    { dia: "SÁB 06/12", leitura: "1 PEDRO 3:11-17" },
+    // QUARTA SEMANA
+    { dia: "DOM 28/12", leitura: "FILIPENSES 2:3-11" },
+    { dia: "SEG 29/12", leitura: "SALMOS 119:9-16" },
+    { dia: "TER 30/12", leitura: "COLOSSENSES 3:1-7" },
+    { dia: "QUA 31/12", leitura: "ISAÍAS 5:16-20" },
+    { dia: "QUI 01/01", leitura: "EFÉSIOS 4:10-14" },
+    { dia: "SEX 02/01", leitura: "EFÉSIOS 4:15-24" },
+    { dia: "SÁB 03/01", leitura: "EFÉSIOS 4:25-32" },
   ];
 
   const container = document.querySelector(".schedule-container");
@@ -75,11 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderSchedule() {
     container.innerHTML = "";
     const weeks = [
-      { title: "PRIMEIRA SEMANA", start: 0 },
-      { title: "SEGUNDA SEMANA", start: 7 },
-      { title: "TERCEIRA SEMANA", start: 14 },
-      { title: "QUARTA SEMANA", start: 21 },
-      { title: "QUINTA SEMANA", start: 28 },
+      { title: "1.ª SEMANA", start: 0 },
+      { title: "2.ª SEMANA", start: 7 },
+      { title: "3.ª SEMANA", start: 14 },
+      { title: "4.ª SEMANA", start: 21 },
     ];
 
     weeks.forEach((week) => {
@@ -163,6 +153,13 @@ document.addEventListener("DOMContentLoaded", () => {
       CRÔNICAS: "cr",
       FILIPENSES: "fp",
       PEDRO: "pe",
+      AGEU: "ag",
+      APOCALIPSE: "ap",
+      TIAGO: "tg",
+      EZEQUIEL: "ez",
+      GÁLATAS: "gl",
+      COLOSSENSES: "cl",
+      EFÉSIOS: "ef",
     };
 
     const partes = versiculo.split(" ");
