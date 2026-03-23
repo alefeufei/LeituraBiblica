@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const capituloVersiculo = partes.slice(offset).join("").toLowerCase();
 
-    return `https://www.bibliaonline.com.br/nvi/${codigoLivro}/${capituloVersiculo}`;
+    return `https://www.bibliaonline.com.br/nvt/${codigoLivro}/${capituloVersiculo}`;
   }
 
   /**
